@@ -18,7 +18,7 @@ O `index.html` pode ser implantado como site estático. Configure o diretório r
 
 ## Estado atual e próximos passos
 
-- Esta versão guarda dados no `localStorage` do navegador e processa PDFs no próprio dispositivo.
+- Esta versão guarda dados de frequência e configurações no `localStorage` do navegador, e os PDFs originais no armazenamento local persistente do navegador (IndexedDB). Os arquivos podem ser abertos e baixados na aba **PDFs anexados**. Cada dispositivo/browser tem seu próprio conjunto de dados.
 - Não há login, banco compartilhado nem armazenamento de PDFs em nuvem. Não use esta versão como repositório institucional de documentos pessoais até conectar autenticação, banco de dados e armazenamento privado.
 - A extração de texto é uma primeira camada de leitura e exige conferência; PDFs digitalizados exigem OCR. A interface deixa registros incertos pendentes em vez de inventar dados.
 - Para produção, conectar banco persistente com controle por usuário, armazenamento privado de arquivos, trilha de auditoria e OCR no servidor. A regra de 75% deve ser configurada em unidade coerente com o regimento e a carga horária da rede.
@@ -31,4 +31,4 @@ A exportação para PDF usa a opção de impressão do navegador, permitindo sal
 
 A árvore `relatorios/2026/2-semestre/` já contém as pastas de julho a dezembro, cada uma subdividida pelas cinco turmas cadastradas. Os diretórios são apenas uma organização de projeto: os PDFs reais são enviados pela tela **Importações**. O arquivo `.gitignore` impede que PDFs adicionados nessas pastas sejam enviados ao repositório. Não publique relatórios com dados pessoais em diretórios estáticos da Vercel.
 
-Na área **Alunos**, os resultados são agrupados por turma e componente curricular. Dentro de cada grupo, os alertas prioritários aparecem primeiro; frequências abaixo de 75% em dados parciais são sinalizadas como atenção parcial, sem indicar reprovação final.
+Na área **Alunos**, o relatório começa com o percentual geral por aluno, ponderado pela soma das presenças e aulas consideradas em todos os componentes. Faltas justificadas sem regra cadastrada ficam fora desse percentual e aparecem sinalizadas. Depois, os resultados são agrupados por turma e componente curricular. Dentro de cada grupo, os alertas prioritários aparecem primeiro; frequências abaixo de 75% em dados parciais são sinalizadas como atenção parcial, sem indicar reprovação final.
